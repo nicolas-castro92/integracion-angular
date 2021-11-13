@@ -1,24 +1,15 @@
-<form class="login100-form" autocomplete="off">
+<form [formGroup]="miFormulario" class="login100-form" autocomplete="off"
+      (ngSubmit)="recuperarPass()">
                 
     <span class="login100-form-title p-b-49">
         Generar nueva contraseña
     </span>
-
-    <div class="wrap-input100 m-b-23">
+    <div class="wrap-input100">
         <span class="label-input100">Username</span>
         <input class="input100"
-               type="email" 
-               name="username" 
-               placeholder="Ingrese su username">
-        <span class="focus-input100"></span>
-    </div>
-
-    <div class="wrap-input100">
-        <span class="label-input100">Password</span>
-        <input class="input100"
-               type="password"
-               name="password" 
-               placeholder="Ingrese su contraseña">
+               type="text"
+               formControlName="correo" 
+               placeholder="Ingrese su usuario">
         <span class="focus-input100"></span>
     </div>
     
@@ -27,7 +18,8 @@
     <div class="container-login100-form-btn">
         <div class="wrap-login100-form-btn">
             <div class="login100-form-bgbtn"></div>
-            <button class="login100-form-btn">
+            <button class="login100-form-btn"
+                    [disabled]="miFormulario.invalid">
                 Enviar
             </button>
         </div>
