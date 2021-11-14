@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-forgot-pass',
@@ -12,7 +13,8 @@ export class ForgotPassComponent implements OnInit {
     correo: ['',[Validators.required]]
   })
 
-  constructor( private fb: FormBuilder ) { }
+  constructor( private fb: FormBuilder,
+               private router: Router ) { }
 
   ngOnInit(): void {
     
@@ -20,6 +22,7 @@ export class ForgotPassComponent implements OnInit {
 
   recuperarPass(){
     console.log(this.miFormulario.value);
+    this.router.navigateByUrl('/auth');
   }
 
 }

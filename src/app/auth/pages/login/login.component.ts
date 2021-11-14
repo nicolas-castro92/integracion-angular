@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -13,14 +14,21 @@ export class LoginComponent implements OnInit {
     clave: ['',[Validators.required]]
   });
 
-  constructor( private fb: FormBuilder ) { }
+  constructor( private fb: FormBuilder,
+               private authService: AuthService) { }
 
   ngOnInit( ): void {
   }
 
   login(){
     console.log(this.miFormulario.value);
-    console.log(this.miFormulario.valid);
+    const {usuario,clave} = this.miFormulario.value;
+
+    this.authService.login( usuario, clave )
+      .subscribe( resp => {
+        console.log(resp);
+      })
+
   }
 
 }
