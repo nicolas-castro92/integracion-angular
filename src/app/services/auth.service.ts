@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { map, catchError, tap } from 'rxjs/operators'
 import { of } from "rxjs";
 import { environment } from 'src/environments/environment';
-import { AuthResp, Respuesta, Usuario } from '../interfaces/auth.interface';
+import { AuthResp, Respuesta, Usuario } from '../interfaces/auth.interface'; 
 
 @Injectable({
   providedIn: 'root'
@@ -20,10 +20,11 @@ export class AuthService {
 
   constructor( private http: HttpClient ) { }
 
-  login ( usuario: string, clave: string ) {
+  login ( usuario: string, clave: any ) {
     
     const url = `${this.adminUrl}/identificar-usuario`
     const body = { usuario, clave }
+    console.log(clave);
 
     return this.http.post<AuthResp>(url, body )
       .pipe(
