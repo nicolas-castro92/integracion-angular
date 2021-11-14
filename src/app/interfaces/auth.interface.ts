@@ -5,6 +5,10 @@ export interface AuthResp {
     mensaje?: string;
 }
 
+export interface Respuesta {
+    ok: boolean;
+}
+
 export interface Usuario {
     id?:          number;
     nombre?:      string;
