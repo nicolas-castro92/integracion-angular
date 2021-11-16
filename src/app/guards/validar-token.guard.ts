@@ -6,9 +6,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ValidarTokenGuard implements CanActivate, CanActivateChild, CanDeactivate<unknown>, CanLoad {
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+  canActivate(): Observable<boolean > | Promise<boolean > | boolean{
+    console.log('canActivate');
     return true;
   }
   canActivateChild(
@@ -23,9 +22,8 @@ export class ValidarTokenGuard implements CanActivate, CanActivateChild, CanDeac
     nextState?: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     return true;
   }
-  canLoad(
-    route: Route,
-    segments: UrlSegment[]): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+  canLoad(): Observable<boolean > | Promise<boolean > | boolean {
+    console.log('canLoad');
     return true;
   }
 }

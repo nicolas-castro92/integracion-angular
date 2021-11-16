@@ -1,9 +1,9 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, catchError, tap } from 'rxjs/operators'
 import { of } from "rxjs";
 import { environment } from 'src/environments/environment';
-import { AuthResp, Respuesta, Usuario } from '../interfaces/auth.interface'; 
+import { AuthResp, Respuesta, Usuario, Usuarioxrol } from '../interfaces/auth.interface'; 
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +11,19 @@ import { AuthResp, Respuesta, Usuario } from '../interfaces/auth.interface';
 export class AuthService {
 
   private adminUrl: string = environment.adminiUrl;
+  private tokenUrl: string = environment.validarUrl;
 
   private _usuario!: Usuario;
+  private _token!: AuthResp;
+  private _idRol!: Usuarioxrol;
+
+  get idRol () {
+    return {...this._idRol}
+  }
+
+  get token() {
+    return { ...this._token }
+  }
 
   get usuario() {
     return {...this._usuario};
@@ -31,6 +42,12 @@ export class AuthService {
         tap( resp => {
           if(resp.ok === true){
             localStorage.setItem('token', resp.tk!);
+            this._token = {
+              tk: resp.tk
+            },
+            this._idRol={
+              id_rol: resp.usuarioxrol?.id_rol
+            },
             this._usuario = {
               nombre: resp.usuario?.nombre!,
               apellido: resp.usuario?.apellido!,
@@ -58,6 +75,15 @@ export class AuthService {
         catchError (err => of(err.error.error.message))
       );
   }
+
+  validarToken( id_rol: any ) {
+    const url = `${this.tokenUrl}/validar-token`;
+    const params = new HttpParams()
+      .set('token',localStorage.getItem('token')||'')
+      .set('rol',id_rol)
+    return this.http.get( url,{params:params} )
+  }
+
 
 }
 

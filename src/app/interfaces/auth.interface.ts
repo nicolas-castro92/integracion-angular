@@ -1,5 +1,5 @@
 export interface AuthResp {
-    ok:           boolean;
+    ok?:           boolean;
     tk?:          string;
     usuario?:     Usuario;
     usuarioxrol?: Usuarioxrol;
@@ -7,7 +7,7 @@ export interface AuthResp {
 }
 
 export interface Respuesta {
-    ok: boolean;
+    ok?: boolean;
 }
 
 export interface Usuario {
@@ -20,8 +20,8 @@ export interface Usuario {
 }
 
 export interface Usuarioxrol {
-    id:         number;
-    id_usuario: number;
-    id_rol:     number;
+    id?:         number;
+    id_usuario?: number;
+    id_rol?:     number;
 }
 
