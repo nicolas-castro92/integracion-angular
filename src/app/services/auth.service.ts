@@ -1,20 +1,22 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, catchError, tap } from 'rxjs/operators'
-import { of } from "rxjs";
+import { of, Observable, BehaviorSubject } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { AuthResp, Respuesta, Usuario, Usuarioxrol } from '../interfaces/auth.interface'; 
+import { AuthResp, Respuesta, Usuario, Usuarioxrol, ValidacionToken } from '../interfaces/auth.interface'; 
+import { LocalStorageService } from './local-storage.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
+
   private adminUrl: string = environment.adminiUrl;
   private tokenUrl: string = environment.validarUrl;
 
-  private _usuario!: Usuario;
-  private _token!: AuthResp;
+  private _usuario!: ValidacionToken;
+  private _respuesta!: AuthResp;
   private _idRol!: Usuarioxrol;
 
   get idRol () {
@@ -22,36 +24,41 @@ export class AuthService {
   }
 
   get token() {
-    return { ...this._token }
+    return { ...this._respuesta }
   }
 
   get usuario() {
     return {...this._usuario};
   }
 
-  constructor( private http: HttpClient ) { }
+  constructor( private http: HttpClient,
+               private localStorageService: LocalStorageService ) { }
 
   login ( usuario: string, clave: any ) {
     
     const url = `${this.adminUrl}/identificar-usuario`
     const body = { usuario, clave }
-    console.log(clave);
+    //console.log(clave);
 
     return this.http.post<AuthResp>(url, body )
       .pipe(
         tap( resp => {
           if(resp.ok === true){
             localStorage.setItem('token', resp.tk!);
-            this._token = {
+            //sessionStorage.setItem('id_rol',(resp.usuarioxrol?.id_rol!).toString());
+            /* this._token = {
               tk: resp.tk
             },
             this._idRol={
               id_rol: resp.usuarioxrol?.id_rol
-            },
+            }, */
             this._usuario = {
-              nombre: resp.usuario?.nombre!,
-              apellido: resp.usuario?.apellido!,
-              id: resp.usuario?.id!
+              ok: resp.ok!,
+              data:{
+                nombre: resp.usuario?.nombre,
+                id_usuario: resp.usuarioxrol?.id_usuario,
+                rol: resp.usuarioxrol?.id_rol
+              }
             }
           }
         }),
@@ -76,14 +83,34 @@ export class AuthService {
       );
   }
 
-  validarToken( id_rol: any ) {
-    const url = `${this.tokenUrl}/validar-token`;
-    const params = new HttpParams()
-      .set('token',localStorage.getItem('token')||'')
-      .set('rol',id_rol)
-    return this.http.get( url,{params:params} )
+  validarToken(): Observable<boolean>{
+    const url = `${this.adminUrl}/validacion`
+    const token = localStorage.getItem('token'||"")
+    const body = {token}
+    //console.log('toke',token);
+    //console.log('body',body);
+    return this.http.post<ValidacionToken>(url,body)
+      .pipe(
+        map( resp => {
+          //console.log(resp.token?.token);
+          localStorage.setItem('token',resp.token?.token!)
+          this._usuario = {
+            ok: resp.ok!,
+            data:{
+              nombre: resp.data?.nombre,
+              id_usuario: resp.data?.id_usuario,
+              rol: resp.data?.rol
+            }
+          }
+          return resp.ok!
+        }),
+        catchError( err => of(false) )
+      )
+
+
   }
 
-
 }
+
+
 
