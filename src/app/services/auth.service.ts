@@ -91,6 +91,7 @@ export class AuthService {
     //console.log('body',body);
     return this.http.post<ValidacionToken>(url,body)
       .pipe(
+
         map( resp => {
           //console.log(resp.token?.token);
           localStorage.setItem('token',resp.token?.token!)
@@ -106,8 +107,10 @@ export class AuthService {
         }),
         catchError( err => of(false) )
       )
+  }
 
-
+  logout(){
+    localStorage.clear();
   }
 
 }

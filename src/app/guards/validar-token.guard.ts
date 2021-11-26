@@ -17,6 +17,7 @@ export class ValidarTokenGuard implements CanActivate, CanActivateChild, CanDeac
   canActivate(): Observable<boolean > | Promise<boolean > | boolean {
     return this.authService.validarToken()
       .pipe(
+        
         tap( valid => {
           if(!valid){
             this.router.navigateByUrl('/auth')
