@@ -14,8 +14,7 @@ import { PrimeNgModule } from './prime-ng/prime-ng.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
-    PrimeNgModule
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
