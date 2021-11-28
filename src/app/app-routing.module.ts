@@ -11,11 +11,17 @@ const routes: Routes = [
     path:'dashboard',
     loadChildren:()=>import ('./protected/protected.module').then(m=>m.ProtectedModule),
     canActivate: [ ValidarTokenGuard ],
-    canLoad:[ ValidarTokenGuard ]
+    canLoad:[ ValidarTokenGuard ] 
+  },
+  {
+    path: 'usuarios',
+    loadChildren: () => import('./usuarios-admin/usuarios-admin.module').then ( m => m.UsuariosAdminModule ),
+    canActivate: [ ValidarTokenGuard ],
+    canLoad:[ ValidarTokenGuard ] 
   },
   {
     path:'**',
-    redirectTo: 'auth'
+    redirectTo: 'dashboard'
   }
 ]
 

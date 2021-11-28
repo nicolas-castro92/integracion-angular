@@ -3,19 +3,19 @@ import { CommonModule } from '@angular/common';
 
 import { ProtectedRoutingModule } from './protected-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { SharedModule } from './shared/shared.module';
 import { PrimeNgModule } from '../prime-ng/prime-ng.module';
+import { MenuComponent } from './menu/menu.component';
 
 
 @NgModule({
   declarations: [
-    DashboardComponent
+    DashboardComponent,
+    MenuComponent
   ],
   imports: [
     CommonModule,
     ProtectedRoutingModule,
-    SharedModule,
-    PrimeNgModule
+    PrimeNgModule,
   ]
 })
 export class ProtectedModule { }

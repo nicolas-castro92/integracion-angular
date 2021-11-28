@@ -4,7 +4,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { AuthRoutingModule } from './auth-routing.module';
 import { LoginComponent } from './pages/login/login.component';
-import { RegisterComponent } from './pages/register/register.component';
 import { MainComponent } from './pages/main/main.component';
 import { ForgotPassComponent } from './pages/forgot-pass/forgot-pass.component';
 
@@ -12,9 +11,8 @@ import { ForgotPassComponent } from './pages/forgot-pass/forgot-pass.component';
 @NgModule({
   declarations: [
     LoginComponent,
-    RegisterComponent,
     MainComponent,
-    ForgotPassComponent
+    ForgotPassComponent,
   ],
   imports: [
     CommonModule,

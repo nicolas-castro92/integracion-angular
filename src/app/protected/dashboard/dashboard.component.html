@@ -1,7 +1,20 @@
-<div class="p-mt-4" >
-<app-menu></app-menu>
-
-<!--     <p>dashboard works!</p>
+<p-menubar [model]="items">
+    <button pButton label="Users"
+            class="p-button-sm"
+            icon="pi pi-user"
+            style="margin-right: 5px;"
+            routerLink="/usuarios/user-read">
+    </button>
+    <button pButton label="Logout"
+            class="p-button-sm"
+            icon="pi pi-power-off"
+            (click)="logout()">
+    </button>
+</p-menubar>
+<router-outlet></router-outlet>
+   
+<pre> {{ usuario | json }} </pre>
+<!--     
 <hr>
 
 <p>
@@ -14,6 +27,4 @@
  -->
 <!-- <button (click)="logout()" >Logout</button>
  -->
-    <router-outlet></router-outlet>
-</div>
-
+    <!-- <app-change-pass></app-change-pass> -->
