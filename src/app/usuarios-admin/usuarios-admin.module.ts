@@ -7,6 +7,8 @@ import { UserCreateComponent } from './pages/user-create/user-create.component';
 import { UserUpdateComponent } from './pages/user-update/user-update.component';
 import { UserDeleteComponent } from './pages/user-delete/user-delete.component';
 import { UserReadComponent } from './pages/user-read/user-read.component';
+import { PrimeNgModule } from '../prime-ng/prime-ng.module';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -19,7 +21,10 @@ import { UserReadComponent } from './pages/user-read/user-read.component';
   ],
   imports: [
     CommonModule,
-    UsuariosAdminRoutingModule
+    UsuariosAdminRoutingModule,
+    PrimeNgModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   exports:[
     ChangePasswordComponent

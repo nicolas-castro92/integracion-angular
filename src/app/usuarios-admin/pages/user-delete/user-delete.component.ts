@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import {ConfirmationService, MessageService} from 'primeng/api';
 
 @Component({
   selector: 'app-user-delete',
@@ -8,9 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserDeleteComponent implements OnInit {
 
-  constructor() { }
 
-  ngOnInit(): void {
+  constructor( private confirmationService: ConfirmationService, 
+               private messageService: MessageService ) { }
+
+  ngOnInit() {
   }
 
+  
 }
+
+

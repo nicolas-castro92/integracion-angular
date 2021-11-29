@@ -96,11 +96,11 @@ html,body{
       outline: none;
       border: none;
   }
-  
+  /* 
   textarea {
     outline: none;
     border: none;
-  }
+  } */
   
   textarea:focus, input:focus {
     border-color: transparent !important;

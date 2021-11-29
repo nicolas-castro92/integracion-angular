@@ -14,8 +14,8 @@ const routes: Routes = [
     component: DashboardComponent,
     children:[
       { path: 'user-create', component: UserCreateComponent },
-      { path: 'user-delete', component: UserDeleteComponent },
-      { path: 'user-update', component: UserUpdateComponent },
+      { path: 'user-delete/:id', component: UserDeleteComponent },
+      { path: 'user-update/:id', component: UserUpdateComponent },
       { path: 'user-read', component: UserReadComponent }
     ]
   }
