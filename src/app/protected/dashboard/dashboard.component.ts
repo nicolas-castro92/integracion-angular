@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import {MenuItem} from 'primeng/api';
+import {MegaMenuItem} from 'primeng/api';
 
 @Component({
   selector: 'app-dashboard',
@@ -21,7 +22,7 @@ export class DashboardComponent implements OnInit {
               private authService: AuthService ) { }
 
   ngOnInit(): void {
-    
+
   }
 
   get user(){
@@ -33,5 +34,7 @@ export class DashboardComponent implements OnInit {
     this.router.navigateByUrl('/auth')
     this.authService.logout();
   }
+
+  
 
 }

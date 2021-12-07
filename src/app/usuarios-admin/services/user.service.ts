@@ -29,6 +29,7 @@ export class UserService {
     return this.http.post<User>(`${this.adminUrl}/usuarios`,{ body },{ headers: new HttpHeaders({Authorization: `Bearer ${localStorage.getItem('token')}`}) }) */
   }
   deleteUser(id:number):Observable<any>{
+    console.log('desde servicio',id);
     const url = `${this.adminUrl}/usuarios/${id}`
     return this.http.delete<any>(url)
   }

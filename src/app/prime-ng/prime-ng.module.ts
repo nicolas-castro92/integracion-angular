@@ -32,7 +32,10 @@ import { ConfirmDialog } from 'primeng/confirmdialog';
 import { MessagesModule } from 'primeng/messages';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {ConfirmationService} from 'primeng/api';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import {PanelMenuModule} from 'primeng/panelmenu';
+import {MenuItem} from 'primeng/api';
+
 
 @NgModule({
   declarations: [],
@@ -42,7 +45,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     DialogModule,
     RadioButtonModule,
     InputNumberModule,
-    DropdownModule,
+    DropdownModule
   ],
   exports:[
     // exportarlos
@@ -58,6 +61,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     InputTextareaModule,
     MenubarModule,
     MessagesModule,
+    PanelMenuModule,
     RadioButton,
     RadioButtonModule,
     TableModule,
