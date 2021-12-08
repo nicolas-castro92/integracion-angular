@@ -30,6 +30,10 @@ const routes: Routes = [
       {
         path:'proponents',
         loadChildren: () => import ('./proponent/proponent.module').then ( m => m.ProponentModule )
+      },
+      {
+        path:'requests',
+        loadChildren: () => import ('./request/request.module').then ( m => m.RequestModule )
       }
       
     ]
