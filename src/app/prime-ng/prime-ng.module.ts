@@ -35,6 +35,7 @@ import {ConfirmationService} from 'primeng/api';
 
 import {PanelMenuModule} from 'primeng/panelmenu';
 import {MenuItem} from 'primeng/api';
+import {ProgressSpinnerModule} from 'primeng/progressspinner';
 
 
 
@@ -62,6 +63,7 @@ import {MenuItem} from 'primeng/api';
     InputTextareaModule,
     MenubarModule,
     MessagesModule,
+    ProgressSpinnerModule,
     PanelMenuModule,
     RadioButton,
     RadioButtonModule,

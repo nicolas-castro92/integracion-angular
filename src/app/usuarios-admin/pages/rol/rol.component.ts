@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 import { UserService } from '../../services/user.service';
 import { Rol } from '../../interfaces/user.interface';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-rol',
@@ -19,7 +20,8 @@ export class RolComponent implements OnInit {
 
   constructor( private activatedRoute: ActivatedRoute,
                private userService: UserService,
-               private fb: FormBuilder ) { 
+               private fb: FormBuilder,
+               private router: Router ) { 
                  
                }
 
@@ -50,8 +52,18 @@ export class RolComponent implements OnInit {
     const idU = this.id
     //console.log('rolsito',rolsito);
     return this.userService.createUserxRol(rolsito,idU)
+      
       .subscribe( resp => { 
-        // loading
+        Swal.fire({
+          icon: 'success',
+          title: 'Good job!',
+          text:'You add a new Rol',
+          showConfirmButton: false,
+          timer: 1500
+        })
+        setTimeout(() => {
+          this.router.navigateByUrl('/usuarios/user-read');
+        }, 1500);
        })
   }
 

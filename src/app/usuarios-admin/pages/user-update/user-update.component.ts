@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import { switchMap } from "rxjs/operators";
 import { FormBuilder, FormGroup } from '@angular/forms';
+import Swal from 'sweetalert2'
+
 
 @Component({
   selector: 'app-user-update',
@@ -23,7 +25,8 @@ export class UserUpdateComponent implements OnInit {
 
   constructor( private userService: UserService,
                private activatedRoute: ActivatedRoute,
-               private fb: FormBuilder ) { }
+               private fb: FormBuilder,
+               private router: Router ) { }
 
   ngOnInit(): void {
 
@@ -41,7 +44,18 @@ export class UserUpdateComponent implements OnInit {
     const user = this.miFormulario.value;
     console.log('user',user);
     this.userService.updateUser(user)
-      .subscribe( usuario => {console.log('que paso',usuario);} )
+      .subscribe( usuario => {
+        Swal.fire({
+          icon: 'success',
+          title: 'Good job!',
+          text:'Updating..',
+          showConfirmButton: false,
+          timer: 1400
+        })
+        setTimeout(() => {
+          this.router.navigateByUrl('/usuarios/user-read');
+        }, 1500);
+      } )
   }
 
 }

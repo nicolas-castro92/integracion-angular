@@ -3,7 +3,6 @@
 <form [formGroup]="miFormulario" 
       class="login100-form" 
       autocomplete="off"
-      (ngSubmit)="createUser()"
       class="text-layout mt-2">
       
       <div class="p-fluid p-formgrid grid text-layout">
@@ -46,8 +45,9 @@
                     label="Create" 
                     class="p-button-outlined p-button-success"
                     (click)="createUser()"
-                    routerLink="/usuarios/user-read">
+                    type="button">
             </button>
+
         </div>
 
     </div>

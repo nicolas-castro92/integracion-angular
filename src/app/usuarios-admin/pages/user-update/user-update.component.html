@@ -3,7 +3,6 @@
 <form [formGroup]="miFormulario" 
 class="login100-form" 
 autocomplete="off"
-(ngSubmit)="updateUser()"
 class="text-layout mt-2">
 
     <div class="p-fluid p-formgrid grid text-layout">
@@ -36,13 +35,8 @@ class="text-layout mt-2">
         <label>Estado</label>
         <input type="text" 
                 pInputText
-                formControlName="estado"> 
-    </div>
-    <div class="p-field col-12 md:col-6">
-        <label>Rol</label>
-        <input type="text" 
-                pInputText
-                formControlName="rol"> 
+                formControlName="estado"
+                > 
     </div>
     <!-- <div class="p-field col-12 md:col-6">
         <label for="rol">Rol</label>
@@ -58,7 +52,7 @@ class="text-layout mt-2">
                 label="Update" 
                 class="p-button-outlined p-button-success"
                 (click)="updateUser()"
-                routerLink="/usuarios/user-read">
+                type="button">
         </button>
     </div>
 

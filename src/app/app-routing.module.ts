@@ -20,6 +20,10 @@ const routes: Routes = [
     canLoad:[ ValidarTokenGuard ] 
   },
   {
+    path:'parameters',
+    loadChildren:()  => import ('./parameters/parameters.module').then( m => m.ParametersModule )
+  },
+  {
     path:'**',
     redirectTo: 'dashboard'
   }

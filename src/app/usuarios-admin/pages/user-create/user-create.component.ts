@@ -36,7 +36,8 @@ export class UserCreateComponent implements OnInit {
     this.userService.createUser(nombre, apellido, correo, celular )
       .subscribe(resp => {
         this.user = resp;
-        console.log( resp);})
+          
+      })
         
   }
 

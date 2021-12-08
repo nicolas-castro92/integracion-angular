@@ -37,6 +37,13 @@
                                     </td>
                                 </div>
                             </tr>
+                            <button pButton type="button" 
+                                    class="p-button-raised p-button-rounded"
+                                    label="Add Rol"
+                                    icon="pi pi-plus"
+                                    type="button"
+                                    [routerLink]="['/usuarios/rol', user.id]">
+                            </button>
                         </div>
                         <ng-template #vacio>
                             <button pButton type="button" 

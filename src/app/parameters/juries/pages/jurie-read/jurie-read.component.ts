@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-area-update',
-  templateUrl: './area-update.component.html',
+  selector: 'app-jurie-read',
+  templateUrl: './jurie-read.component.html',
   styles: [
   ]
 })
-export class AreaUpdateComponent implements OnInit {
+export class JurieReadComponent implements OnInit {
 
   constructor() { }
 
