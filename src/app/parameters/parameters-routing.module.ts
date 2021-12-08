@@ -42,6 +42,10 @@ const routes: Routes = [
       {
         path:'committees',
         loadChildren: () => import ('./t-committee/t-committee.module').then ( m => m.TCommitteeModule )
+      },
+      {
+        path:'types-requests',
+        loadChildren: () => import ('./t-request/t-request.module').then ( m => m.TRequestModule )
       }
       
     ]
