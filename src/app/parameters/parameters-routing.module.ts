@@ -18,6 +18,10 @@ const routes: Routes = [
       {
         path:'faculties',
         loadChildren: () => import ('./faculty/faculty.module').then ( m => m.FacultyModule )
+      },
+      {
+        path:'investigation',
+        loadChildren: () => import ('./i-area/i-area.module').then ( m => m.IAreaModule )
       }
       
     ]
