@@ -34,6 +34,10 @@ const routes: Routes = [
       {
         path:'requests',
         loadChildren: () => import ('./request/request.module').then ( m => m.RequestModule )
+      },
+      {
+        path:'bonding',
+        loadChildren: () => import ('./t-bonding/t-bonding.module').then ( m => m.TBondingModule )
       }
       
     ]
