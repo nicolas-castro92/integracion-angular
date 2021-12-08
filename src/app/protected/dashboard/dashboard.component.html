@@ -10,6 +10,7 @@
                 class="p-button-sm mt-2"
                 icon="pi pi-user"
                 style="margin-right: 5px;"
+                routerLink="/parameters/departaments"
                 >
         </button>
         <button pButton label="T-Bonding"
@@ -74,8 +75,11 @@
         </button>
 </p-menubar>
 <router-outlet></router-outlet>
+<div class="text-layout" >
+        <pre> {{ usuario | json }} </pre>
+
+</div>
    
-<pre> {{ usuario | json }} </pre>
 
 
 <!--     
