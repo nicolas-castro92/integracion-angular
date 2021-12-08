@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { User } from '../interfaces/user.interface';
+import { User, Rol } from '../interfaces/user.interface';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
+import { map, catchError, tap } from 'rxjs/operators'
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,11 @@ import { environment } from '../../../environments/environment';
 export class UserService {
 
   private adminUrl: string = environment.adminiUrl;
+  private _rol!: Rol;
+
+  get rol(){
+    return {...this.getRol}
+  }
 
   constructor( private http: HttpClient ) { }
 
@@ -37,4 +43,17 @@ export class UserService {
     const url = `${this.adminUrl}/usuarios/${data.id}`
     return this.http.put<User>(url,data,{headers: new HttpHeaders({Authorization: `Bearer ${localStorage.getItem('token')}`})})
   }
+
+  getRol():Observable<Rol[]>{
+    
+    return this.http.get<Rol[]>(`${this.adminUrl}/roles`,{ headers: new HttpHeaders({Authorization: `Bearer ${localStorage.getItem('token')}`})})
+    /* ?filter={"fields":["nombre"]} */
+  }
+  createUserxRol(id_rol:number, id_usuario:number):Observable<Rol>{
+    const url = `${this.adminUrl}/usuarioxroles`
+    const body = {id_usuario,id_rol}
+    return this.http.post<Rol>(url,body,{headers: new HttpHeaders({Authorization: `Bearer ${localStorage.getItem('token')}`})})
+  }
+  
 }
+

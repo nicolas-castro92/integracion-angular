@@ -7,6 +7,7 @@ import { UserDeleteComponent } from './pages/user-delete/user-delete.component';
 import { UserUpdateComponent } from './pages/user-update/user-update.component';
 import { UserReadComponent } from './pages/user-read/user-read.component';
 import { DashboardComponent } from '../protected/dashboard/dashboard.component';
+import { RolComponent } from './pages/rol/rol.component';
 
 const routes: Routes = [
   {
@@ -16,7 +17,8 @@ const routes: Routes = [
       { path: 'user-create', component: UserCreateComponent },
       { path: 'user-delete/:id', component: UserDeleteComponent },
       { path: 'user-update/:id', component: UserUpdateComponent },
-      { path: 'user-read', component: UserReadComponent }
+      { path: 'user-read', component: UserReadComponent },
+      { path: 'rol/:id', component: RolComponent }
     ]
   }
 ];

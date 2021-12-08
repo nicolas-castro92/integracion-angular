@@ -14,7 +14,7 @@ import { UserService } from '../../services/user.service';
 export class UserCreateComponent implements OnInit {
 
   
-
+  user!: User;
   constructor(private fb: FormBuilder,
               private userService: UserService
              ) { }
@@ -34,7 +34,10 @@ export class UserCreateComponent implements OnInit {
     console.log(this.miFormulario.value);
     const {nombre, apellido, correo, celular} = this.miFormulario.value;
     this.userService.createUser(nombre, apellido, correo, celular )
-      .subscribe(resp => {console.log( resp);})
+      .subscribe(resp => {
+        this.user = resp;
+        console.log( resp);})
+        
   }
 
 }

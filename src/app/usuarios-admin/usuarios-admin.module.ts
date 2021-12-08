@@ -9,6 +9,7 @@ import { UserDeleteComponent } from './pages/user-delete/user-delete.component';
 import { UserReadComponent } from './pages/user-read/user-read.component';
 import { PrimeNgModule } from '../prime-ng/prime-ng.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { RolComponent } from './pages/rol/rol.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     UserCreateComponent,
     UserUpdateComponent,
     UserDeleteComponent,
-    UserReadComponent
+    UserReadComponent,
+    RolComponent
   ],
   imports: [
     CommonModule,

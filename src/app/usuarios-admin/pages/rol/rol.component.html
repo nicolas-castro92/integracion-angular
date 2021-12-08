@@ -1,0 +1,30 @@
+<p>rol works!</p>
+
+<form [formGroup]="miFormulario"
+      >
+    <div class="row mb-3" >
+        <div class="col" >
+            <label class="form-label">Rol</label>
+            <select class="form-control"
+                    formControlName="rol">
+                <option value=""> --Choose rol-- </option>
+                <option *ngFor="let rol of rol"
+                        [value]="rol.id"> {{rol.nombre}} </option>
+            </select>
+        </div>
+    </div>
+    <button pButton type="button" 
+                                    class="p-button-raised p-button-rounded"
+                                    label="Add Rol"
+                                    icon="pi pi-plus"
+                                    (click)="asignar()"
+                                    >
+                            </button>
+</form>
+
+
+<ul>
+    <li>
+        {{rol | json}}
+    </li>
+</ul>

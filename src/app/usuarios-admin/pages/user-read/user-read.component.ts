@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class UserReadComponent implements OnInit {
 
-  user: User[] = [];
+  user!: User[];
 
   constructor( private userService: UserService,
                private router: Router ) { }

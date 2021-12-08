@@ -14,7 +14,6 @@ export class UserUpdateComponent implements OnInit {
 
   miFormulario: FormGroup = this.fb.group({
     id:[],
-    contrasenia:[],
     nombre: [],
     apellido: [],
     correo: [],
