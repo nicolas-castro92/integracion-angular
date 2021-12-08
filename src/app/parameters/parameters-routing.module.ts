@@ -22,6 +22,10 @@ const routes: Routes = [
       {
         path:'investigation',
         loadChildren: () => import ('./i-area/i-area.module').then ( m => m.IAreaModule )
+      },
+      {
+        path:'modalities',
+        loadChildren: () => import ('./modality/modality.module').then ( m => m.ModalityModule )
       }
       
     ]
