@@ -38,6 +38,10 @@ const routes: Routes = [
       {
         path:'bonding',
         loadChildren: () => import ('./t-bonding/t-bonding.module').then ( m => m.TBondingModule )
+      },
+      {
+        path:'committees',
+        loadChildren: () => import ('./t-committee/t-committee.module').then ( m => m.TCommitteeModule )
       }
       
     ]
