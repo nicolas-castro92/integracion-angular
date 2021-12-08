@@ -26,6 +26,10 @@ const routes: Routes = [
       {
         path:'modalities',
         loadChildren: () => import ('./modality/modality.module').then ( m => m.ModalityModule )
+      },
+      {
+        path:'proponents',
+        loadChildren: () => import ('./proponent/proponent.module').then ( m => m.ProponentModule )
       }
       
     ]
