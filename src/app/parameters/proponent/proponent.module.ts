@@ -6,6 +6,8 @@ import { ProponentReadComponent } from './pages/proponent-read/proponent-read.co
 import { ProponentCreateComponent } from './pages/proponent-create/proponent-create.component';
 import { ProponentUpdateComponent } from './pages/proponent-update/proponent-update.component';
 import { ProponentDeleteComponent } from './pages/proponent-delete/proponent-delete.component';
+import { PrimeNgModule } from 'src/app/prime-ng/prime-ng.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -17,7 +19,9 @@ import { ProponentDeleteComponent } from './pages/proponent-delete/proponent-del
   ],
   imports: [
     CommonModule,
-    ProponentRoutingModule
+    ProponentRoutingModule,
+    PrimeNgModule,
+    ReactiveFormsModule
   ]
 })
 export class ProponentModule { }

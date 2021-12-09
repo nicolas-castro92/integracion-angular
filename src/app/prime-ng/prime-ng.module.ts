@@ -36,8 +36,8 @@ import {ConfirmationService} from 'primeng/api';
 import {PanelMenuModule} from 'primeng/panelmenu';
 import {MenuItem} from 'primeng/api';
 import {ProgressSpinnerModule} from 'primeng/progressspinner';
-
-
+import { TagModule } from 'primeng/tag';
+import {CardModule} from 'primeng/card';
 
 @NgModule({
   declarations: [],
@@ -51,6 +51,7 @@ import {ProgressSpinnerModule} from 'primeng/progressspinner';
   ],
   exports:[
     // exportarlos
+    CardModule,
     ButtonModule,
     CheckboxModule,
     ConfirmDialogModule,
@@ -67,6 +68,7 @@ import {ProgressSpinnerModule} from 'primeng/progressspinner';
     PanelMenuModule,
     RadioButton,
     RadioButtonModule,
+    TagModule,
     TableModule,
     ToolbarModule,
     

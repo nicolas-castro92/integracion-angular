@@ -7,7 +7,7 @@ export const environment = {
   
   // microservicios loopback
   adminiUrl:  'http://localhost:3007',
-  juradoUrl:  'http://localhost:3000',
+  academicUrl:  'http://localhost:3000',
   validarUrl: 'http://localhost:5001'
 
 };
