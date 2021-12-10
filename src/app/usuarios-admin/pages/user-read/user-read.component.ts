@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 export class UserReadComponent implements OnInit {
 
   user!: User[];
-
+  loading!:boolean
   constructor( private userService: UserService,
                private router: Router ) { }
 
@@ -22,10 +22,14 @@ export class UserReadComponent implements OnInit {
   }
 
   getUser (){
+    this.loading=true;
+    
     this.userService.getUser()
       .subscribe( usuarios => {
-        console.log(usuarios);
-        this.user = usuarios
+        setTimeout(() => {
+          this.user = usuarios
+          this.loading=false;
+        }, 1200);
       } )
   }
  

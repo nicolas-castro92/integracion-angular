@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 })
 export class ProponentReadComponent implements OnInit {
 
+  loading!: boolean;
   proponent!: Proponent[];
 
   constructor( private proponentService: ProponentService,
@@ -21,10 +22,15 @@ export class ProponentReadComponent implements OnInit {
   }
 
   getProponent (){
+    this.loading = true
     this.proponentService.getProponent()
       .subscribe( proponents => {
+        setTimeout(() => {
+          this.loading= false
+          this.proponent = proponents
+        }, 1200);
         console.log(proponents);
-        this.proponent = proponents
+        
       } )
   }
  

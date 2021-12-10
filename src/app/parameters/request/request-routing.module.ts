@@ -9,10 +9,10 @@ const routes: Routes = [
   {
     path:'',
     children:[
-      { path:'request-create', component: RequestCreateComponent },
       { path:'request-read', component: RequestReadComponent },
       { path:'request-update/:id', component: RequestUpdateComponent },
       { path:'request-delete/:id', component: RequestDeleteComponent },
+      { path:'request-create/:id', component: RequestCreateComponent },
       { path:'**', redirectTo:'request-read' }
     ]
   }

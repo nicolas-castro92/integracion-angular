@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import { switchMap } from "rxjs/operators";
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2'
 
 
@@ -15,12 +15,12 @@ import Swal from 'sweetalert2'
 export class UserUpdateComponent implements OnInit {
 
   miFormulario: FormGroup = this.fb.group({
-    id:[],
-    nombre: [],
-    apellido: [],
-    correo: [],
-    celular: [],
-    estado: []
+    id:['',[Validators.required]],
+    nombre: ['',[Validators.required]],
+    apellido: ['',[Validators.required]],
+    correo: ['',[Validators.required]],
+    celular: ['',[Validators.required]],
+    estado: ['',[Validators.required]]
   })
 
   constructor( private userService: UserService,
@@ -41,6 +41,9 @@ export class UserUpdateComponent implements OnInit {
   }
 
   updateUser(){
+    if(!this.miFormulario.pristine){
+      
+    }
     const user = this.miFormulario.value;
     console.log('user',user);
     this.userService.updateUser(user)
@@ -52,9 +55,7 @@ export class UserUpdateComponent implements OnInit {
           showConfirmButton: false,
           timer: 1400
         })
-        setTimeout(() => {
-          this.router.navigateByUrl('/usuarios/user-read');
-        }, 1500);
+        this.router.navigateByUrl('/usuarios/user-read');
       } )
   }
 
