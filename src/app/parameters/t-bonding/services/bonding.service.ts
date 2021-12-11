@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../../../environments/environment';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Bonding } from '../interfaces/bonding.interface';
 
@@ -10,31 +10,33 @@ import { Bonding } from '../interfaces/bonding.interface';
 export class BondingService {
 
   private academicUrl: string = environment.academicUrl;
+
   constructor( private http: HttpClient ) { }
 
-  getBondingById(id: number):Observable<Bonding>{
-    return this.http.get<Bonding>(`${this.academicUrl}/tipovinculaciones/${id}`);
+  createBonding(nombre:string):Observable<Bonding>{
+    const url = `${this.academicUrl}/tipovinculaciones`;
+    const body = {nombre};
+    return this.http.post<Bonding>(url,body,{headers: new HttpHeaders({Authorization: `Bearer ${localStorage.getItem('token')}`})})
   }
 
   getBonding():Observable<Bonding[]>{
-    return this.http.get<Bonding[]>(`${this.academicUrl}/tipovinculaciones`,{ headers: new HttpHeaders({Authorization: `Bearer ${localStorage.getItem('token')}`})})
-  }
-  createBonding( nombre: String, apellido: String, correo: String, celular: String): Observable<Bonding>{
     const url = `${this.academicUrl}/tipovinculaciones`
-    const body = {nombre,apellido,correo,celular}
-    return this.http.post<Bonding>(url,body,{headers: new HttpHeaders({Authorization: `Bearer ${localStorage.getItem('token')}`})})
+    return this.http.get<Bonding[]>(url);
+  }
 
-    /* const body= {nombre,apellido,correo,celular}
-    return this.http.post<Bonding>(`${this.academicUrl}/tipovinculaciones`,{ body },{ headers: new HttpHeaders({Authorization: `Bearer ${localStorage.getItem('token')}`}) }) */
-  }
-  deleteBonding(id:number):Observable<any>{
-    console.log('desde servicio',id);
+  getBondingById(id:number):Observable<Bonding>{
     const url = `${this.academicUrl}/tipovinculaciones/${id}`
-    return this.http.delete<any>(url)
+    return this.http.get<Bonding>(url);
   }
-  updateBonding(data: Bonding):Observable<Bonding>{
-    const url = `${this.academicUrl}/tipovinculaciones/${data.id}`
-    return this.http.put<Bonding>(url,data,{headers: new HttpHeaders({Authorization: `Bearer ${localStorage.getItem('token')}`})})
+
+  updateBonding(Bonding: Bonding):Observable<Bonding>{
+    const url = `${this.academicUrl}/tipovinculaciones/${Bonding.id}`
+    return this.http.put<Bonding>(url, Bonding,{headers: new HttpHeaders({Authorization: `Bearer ${localStorage.getItem('token')}`})});
+  }
+
+  deleteBonding(id:number):Observable<any>{
+    const url = `${this.academicUrl}/tipovinculaciones/${id}`
+    return this.http.delete<any>(url,{headers: new HttpHeaders({Authorization: `Bearer ${localStorage.getItem('token')}`})});
   }
 
 

@@ -16,7 +16,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     ParametersRoutingModule,
     PrimeNgModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    PrimeNgModule
   ]
   
 })
