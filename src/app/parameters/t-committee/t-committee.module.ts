@@ -6,6 +6,8 @@ import { CommitteeDeleteComponent } from './pages/committee-delete/committee-del
 import { CommitteeUpdateComponent } from './pages/committee-update/committee-update.component';
 import { CommitteeCreateComponent } from './pages/committee-create/committee-create.component';
 import { CommitteeReadComponent } from './pages/committee-read/committee-read.component';
+import { PrimeNgModule } from '../../prime-ng/prime-ng.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -17,7 +19,9 @@ import { CommitteeReadComponent } from './pages/committee-read/committee-read.co
   ],
   imports: [
     CommonModule,
-    TCommitteeRoutingModule
+    TCommitteeRoutingModule,
+    PrimeNgModule,
+    ReactiveFormsModule
   ]
 })
 export class TCommitteeModule { }
