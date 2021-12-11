@@ -75,5 +75,6 @@ import {CardModule} from 'primeng/card';
   ],
 
   providers:[ ConfirmationService,MessageService ]
+  
 })
 export class PrimeNgModule { }

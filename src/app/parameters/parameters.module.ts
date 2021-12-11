@@ -18,5 +18,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     PrimeNgModule,
     ReactiveFormsModule
   ]
+  
 })
 export class ParametersModule { }

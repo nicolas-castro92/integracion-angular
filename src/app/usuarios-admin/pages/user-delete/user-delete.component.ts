@@ -62,12 +62,6 @@ export class UserDeleteComponent implements OnInit {
     );
 }
 
-borrar(){
-  this.userService.deleteUser(this.id).subscribe
-}
-
-
-
   
 }
 

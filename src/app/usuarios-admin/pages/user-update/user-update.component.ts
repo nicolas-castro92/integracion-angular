@@ -36,7 +36,8 @@ export class UserUpdateComponent implements OnInit {
       )
       .subscribe( usuario => {
         this.miFormulario.setValue(usuario)
-        console.log('actualizo',usuario);} )
+        //console.log('que voy a actualizar',usuario);
+      })
 
   }
 
@@ -45,7 +46,7 @@ export class UserUpdateComponent implements OnInit {
       
     }
     const user = this.miFormulario.value;
-    console.log('user',user);
+    //console.log('user',user);
     this.userService.updateUser(user)
       .subscribe( usuario => {
         Swal.fire({

@@ -49,11 +49,14 @@ export class UserService {
     return this.http.get<Rol[]>(`${this.adminUrl}/roles`,{ headers: new HttpHeaders({Authorization: `Bearer ${localStorage.getItem('token')}`})})
     /* ?filter={"fields":["nombre"]} */
   }
+  
   createUserxRol(id_rol:number, id_usuario:number):Observable<Rol>{
     const url = `${this.adminUrl}/usuarioxroles`
     const body = {id_usuario,id_rol}
     return this.http.post<Rol>(url,body,{headers: new HttpHeaders({Authorization: `Bearer ${localStorage.getItem('token')}`})})
   }
+
+
   
 }
 

@@ -6,6 +6,8 @@ import { FacultyUpdateComponent } from './pages/faculty-update/faculty-update.co
 import { FacultyCreateComponent } from './pages/faculty-create/faculty-create.component';
 import { FacultyDeleteComponent } from './pages/faculty-delete/faculty-delete.component';
 import { FacultyReadComponent } from './pages/faculty-read/faculty-read.component';
+import { PrimeNgModule } from '../../prime-ng/prime-ng.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -17,7 +19,9 @@ import { FacultyReadComponent } from './pages/faculty-read/faculty-read.componen
   ],
   imports: [
     CommonModule,
-    FacultyRoutingModule
+    FacultyRoutingModule,
+    PrimeNgModule,
+    ReactiveFormsModule
   ]
 })
 export class FacultyModule { }
