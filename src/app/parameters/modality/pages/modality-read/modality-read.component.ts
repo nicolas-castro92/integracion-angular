@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Modality } from '../../interfaces/modality.interface';
+import { ModalityService } from '../../services/modality.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-modality-read',
@@ -8,9 +11,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ModalityReadComponent implements OnInit {
 
-  constructor() { }
+  modality!: Modality[]
+
+  constructor( private modalityService: ModalityService,
+               private router: Router ) { }
 
   ngOnInit(): void {
+    this.getModality()
+  }
+
+  getModality (){
+    this.modalityService.getModality()
+      .subscribe( modalities => {
+        this.modality = modalities
+        
+      })
   }
 
 }

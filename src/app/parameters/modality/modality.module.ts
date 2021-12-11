@@ -6,6 +6,8 @@ import { ModalityUpdateComponent } from './pages/modality-update/modality-update
 import { ModalityCreateComponent } from './pages/modality-create/modality-create.component';
 import { ModalityDeleteComponent } from './pages/modality-delete/modality-delete.component';
 import { ModalityReadComponent } from './pages/modality-read/modality-read.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { PrimeNgModule } from '../../prime-ng/prime-ng.module';
 
 
 @NgModule({
@@ -17,7 +19,9 @@ import { ModalityReadComponent } from './pages/modality-read/modality-read.compo
   ],
   imports: [
     CommonModule,
-    ModalityRoutingModule
+    ModalityRoutingModule,
+    ReactiveFormsModule,
+    PrimeNgModule
   ]
 })
 export class ModalityModule { }
