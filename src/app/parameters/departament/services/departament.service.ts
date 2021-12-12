@@ -35,6 +35,12 @@ export class DepartamentService {
     return this.http.put<Departament>(url, body,{headers: new HttpHeaders({Authorization: `Bearer ${localStorage.getItem('token')}`})});
   }
 
+  updateDepartaments(data: any):Observable<any>{
+    console.log('servicio ',data);
+    const url = `${this.academicUrl}/departamentos/${data.id}`
+    return this.http.put<any>(url, data,{headers: new HttpHeaders({Authorization: `Bearer ${localStorage.getItem('token')}`})});
+  }
+
   deleteDepartament(id:number):Observable<any>{
     const url = `${this.academicUrl}/departamentos/${id}`
     return this.http.delete<any>(url,{headers: new HttpHeaders({Authorization: `Bearer ${localStorage.getItem('token')}`})});

@@ -59,10 +59,18 @@ export class DepartamentUpdateComponent implements OnInit {
     console.log('que nombre',this.miFormulario.value.nombre);
     console.log('que id',this.miFormulario.value.id);
     console.log('que facultad',this.miFormulario.value.facultad); */
-    const nombre = this.miFormulario.value.nombre
+
+    const formData = this.miFormulario.getRawValue();
+    console.log('formulario Objeto',formData);
+
+    /* const nombre = this.miFormulario.value.nombre
     const id = this.miFormulario.value.id;
-    const id_facultad: number = +this.miFormulario.value.facultad
-      this.departamentService.updateDepartament(nombre,id,id_facultad)
+    const id_facultad: number = +this.miFormulario.value.facultad */
+      this.departamentService.updateDepartaments({
+        nombre: formData.nombre, 
+        id: formData.id,
+        id_facultad: parseInt(formData.id_facultad)
+      })
         .subscribe( Departament => {
           Swal.fire({
             icon: 'success',
