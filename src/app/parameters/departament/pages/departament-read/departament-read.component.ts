@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { DepartamentService } from '../../services/departament.service';
+import { Departament } from '../../interfaces/departament.interface';
 
 @Component({
   selector: 'app-departament-read',
@@ -8,9 +11,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DepartamentReadComponent implements OnInit {
 
-  constructor() { }
+  departament!: Departament[]
+
+  constructor( private departamentService: DepartamentService,
+               private router: Router ) { }
 
   ngOnInit(): void {
+    this.getDepartament()
   }
 
+  getDepartament (){
+    this.departamentService.getDepartament()
+      .subscribe( departaments => {
+        this.departament = departaments
+        
+      })
+  }
 }

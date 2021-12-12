@@ -13,7 +13,6 @@ import { Bonding } from '../../../t-bonding/interfaces/bonding.interface';
 })
 export class ProponentCreateComponent implements OnInit {
 
-  selectedVinculation!: Bonding;
   tipoVinculacion: Bonding[]= [];
   proponent!: Proponent;
   constructor(private fb: FormBuilder,
@@ -52,18 +51,6 @@ export class ProponentCreateComponent implements OnInit {
       })
   }
 
-  createProponent() {
-    console.log(this.miFormulario.value);
-    const {documento, primer_nombre, otros_nombres, primer_apellido, segundo_apellido, correo, celular} = this.miFormulario.value;
-    const { idtipovinculacion } = this.miFormulario.value.id;
-    const rolsito: number = +this.miFormulario.value.idtipovinculacion;
   
-    /* this.proponentService.createProponent(nombre, apellido, correo, celular )
-      .subscribe(resp => {
-        this.proponent = resp;
-          
-      }) */
-        
-  }
 
 }

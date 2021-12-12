@@ -6,6 +6,8 @@ import { DepartamentReadComponent } from './pages/departament-read/departament-r
 import { DepartamentDeleteComponent } from './pages/departament-delete/departament-delete.component';
 import { DepartamentCreateComponent } from './pages/departament-create/departament-create.component';
 import { DepartamentUpdateComponent } from './pages/departament-update/departament-update.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { PrimeNgModule } from '../../prime-ng/prime-ng.module';
 
 
 @NgModule({
@@ -17,7 +19,9 @@ import { DepartamentUpdateComponent } from './pages/departament-update/departame
   ],
   imports: [
     CommonModule,
-    DepartamentRoutingModule
+    DepartamentRoutingModule,
+    ReactiveFormsModule,
+    PrimeNgModule
   ]
 })
 export class DepartamentModule { }
