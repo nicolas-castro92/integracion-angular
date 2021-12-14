@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { TRequest } from '../../interfaces/t_request.interface';
+import { TRequestService } from '../../services/t-request.service';
 
 @Component({
   selector: 'app-trequest-read',
@@ -8,9 +11,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TRequestReadComponent implements OnInit {
 
-  constructor() { }
+  typeRequest!: TRequest[]
+
+  constructor( private tRequestService: TRequestService,
+               private router: Router ) { }
 
   ngOnInit(): void {
+    this.getTRequest()
+  }
+
+  getTRequest (){
+    this.tRequestService.getTRequest()
+      .subscribe( typesRequests => {
+        this.typeRequest = typesRequests
+        
+      })
   }
 
 }

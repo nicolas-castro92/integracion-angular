@@ -6,6 +6,8 @@ import { TRequestReadComponent } from './pages/trequest-read/trequest-read.compo
 import { TRequestUpdateComponent } from './pages/trequest-update/trequest-update.component';
 import { TRequestDeleteComponent } from './pages/trequest-delete/trequest-delete.component';
 import { TRequestCreateComponent } from './pages/trequest-create/trequest-create.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { PrimeNgModule } from '../../prime-ng/prime-ng.module';
 
 
 @NgModule({
@@ -17,7 +19,9 @@ import { TRequestCreateComponent } from './pages/trequest-create/trequest-create
   ],
   imports: [
     CommonModule,
-    TRequestRoutingModule
+    TRequestRoutingModule,
+    ReactiveFormsModule,
+    PrimeNgModule
   ]
 })
 export class TRequestModule { }

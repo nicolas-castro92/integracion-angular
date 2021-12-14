@@ -9,11 +9,11 @@ const routes: Routes = [
   {
     path:'',
     children:[
-      { path:'t-request-create', component: TRequestCreateComponent },
-      { path:'t-request-read', component: TRequestReadComponent },
-      { path:'t-request-update/:id', component: TRequestUpdateComponent },
-      { path:'t-request-delete/:id', component: TRequestDeleteComponent },
-      { path:'**', redirectTo:'t-request-read' }
+      { path:'typerequest-create', component: TRequestCreateComponent },
+      { path:'typerequest-read', component: TRequestReadComponent },
+      { path:'typerequest-update/:id', component: TRequestUpdateComponent },
+      { path:'typerequest-delete/:id', component: TRequestDeleteComponent },
+      { path:'**', redirectTo:'typerequest-read' }
     ]
   }
 ];
