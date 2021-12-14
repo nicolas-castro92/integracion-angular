@@ -36,7 +36,7 @@ export class UserService {
   }
   deleteUser(id:number):Observable<any>{
     console.log('desde servicio',id);
-    const url = `${this.adminUrl}/usuarios/${id}`
+    const url = `${this.adminUrl}/usuarios/${id}/usuarioxrols`
     return this.http.delete<any>(url)
   }
   updateUser(data: User):Observable<User>{
