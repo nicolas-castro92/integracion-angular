@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Jurie } from '../../interfaces/jurie.interface';
+import { JurieService } from '../../services/jurie.service';
 
 @Component({
   selector: 'app-jurie-read',
@@ -8,9 +11,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JurieReadComponent implements OnInit {
 
-  constructor() { }
+  jurie!: Jurie[]
+
+  constructor( private jurieService: JurieService,
+               private router: Router ) { }
 
   ngOnInit(): void {
+    this.getJurie()
+  }
+
+  getJurie (){
+    this.jurieService.getJurie()
+      .subscribe( juries => {
+        this.jurie = juries
+        
+      })
   }
 
 }

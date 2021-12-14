@@ -21,11 +21,13 @@ const routes: Routes = [
   },
   {
     path:'parameters',
-    loadChildren:()  => import ('./parameters/parameters.module').then( m => m.ParametersModule )
+    loadChildren:()  => import ('./parameters/parameters.module').then( m => m.ParametersModule ),
+    canActivate: [ ValidarTokenGuard ],
+    canLoad:[ ValidarTokenGuard ] 
   },
   {
     path:'**',
-    redirectTo: 'dashboard'
+    redirectTo: 'auth'
   }
 ]
 

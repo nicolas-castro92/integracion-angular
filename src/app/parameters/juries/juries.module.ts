@@ -6,6 +6,8 @@ import { JurieCreateComponent } from './pages/jurie-create/jurie-create.componen
 import { JurieUpdateComponent } from './pages/jurie-update/jurie-update.component';
 import { JurieDeleteComponent } from './pages/jurie-delete/jurie-delete.component';
 import { JurieReadComponent } from './pages/jurie-read/jurie-read.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { PrimeNgModule } from '../../prime-ng/prime-ng.module';
 
 
 @NgModule({
@@ -17,7 +19,9 @@ import { JurieReadComponent } from './pages/jurie-read/jurie-read.component';
   ],
   imports: [
     CommonModule,
-    JuriesRoutingModule
+    JuriesRoutingModule,
+    ReactiveFormsModule,
+    PrimeNgModule
   ]
 })
 export class JuriesModule { }
