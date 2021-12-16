@@ -110,8 +110,12 @@ export class JurieService {
         map( resp => resp.ok ),
         catchError (err => of(err.error.error.message))
       );
-
       
+  }
+
+  asignJurie(data:any):Observable<any>{
+    const url = `${this.academicUrl}/juradoxsolicitudes`
+    return this.http.post<any>(url,data);
   }
 
 

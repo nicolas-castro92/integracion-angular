@@ -79,7 +79,7 @@ export class DepartamentUpdateComponent implements OnInit {
             showConfirmButton: false,
             timer: 2000
           })
-          this.router.navigateByUrl('/parameters/departaments/Departament-read')
+          this.router.navigateByUrl('/parameters/departaments/departament-read')
         })
   }
 }

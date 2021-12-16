@@ -1,1 +1,54 @@
-<p>asign-jurie works!</p>
+<div class="grid" >
+    <div class="col mt-2" >
+        <p-card header="Form To Add Jurie">
+            <form [formGroup]="miFormulario"
+                  class="login100-form" 
+                  autocomplete="off"
+                  class="text-layout">
+
+                <div class="p-fluid p-formgrid grid text-layout">
+                    
+                    <div class="p-field col-12 md:col-4">
+                        <label class="form-label">Juries</label>
+                        <select class="form-control"
+                                formControlName="jurie">
+                            <option value=""> --Choose Jurie-- </option>
+                            <option *ngFor="let tipo of jurieee"
+                                    [value]="tipo.id"> {{tipo.nombre}} </option>
+                        </select>
+                    </div>
+                </div>
+
+
+            <div class="p-fluid p-formgrid grid text-layout">
+                <div class="p-field col-12 md:col-12">
+                    <div class="grid mt-2 " >
+                        <div class="p-field col-12 md:col-6 ">
+                            <button pButton type="button"
+                                    icon="pi pi-check "
+                                    label="Invite Jurie" 
+                                    class="p-button-outlined p-button-success"
+                                    (click)="asignar()"
+                                    type="button">
+                            </button>
+                        </div>
+                        <div class="p-field col-12 md:col-6 ">
+                        
+                            <button pButton type="button"
+                                    icon="pi pi-times "
+                                    label="Cancel" 
+                                    class="p-button-outlined p-button-danger"
+                                    routerLink="/parameters/juries/user-read"
+                                    type="button"
+                                    >
+                            </button>
+                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </form>
+        </p-card>
+    </div>
+</div>
+
