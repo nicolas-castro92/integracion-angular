@@ -6,3 +6,8 @@ export interface Jurie {
     entidad: string;
 }
 
+export interface JurieUser {
+    ok?:           boolean;
+    tk?:          string;
+    usuario?:     Jurie;
+}

@@ -4,6 +4,15 @@
     <span class="login100-form-title p-b-49">
         Generar nueva contraseña
     </span>
+    <div class="p-field col-12 md:col-4">
+        <label class="form-label">Rol</label>
+        <select class="form-control"
+                formControlName="rol">
+            <option value=""> --Choose Rol-- </option>
+            <option *ngFor="let tipo of rol"
+                    [value]="tipo"> {{tipo}} </option>
+        </select>
+    </div>
     <div class="wrap-input100">
         <span class="label-input100">Username</span>
         <input class="input100"

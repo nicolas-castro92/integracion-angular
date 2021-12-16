@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import Swal from 'sweetalert2'
 import * as cryptoJS from 'crypto-js';
 import { LocalStorageService } from '../../../services/local-storage.service';
+import { JurieService } from 'src/app/parameters/juries/services/jurie.service';
 
 
 
@@ -15,15 +16,20 @@ import { LocalStorageService } from '../../../services/local-storage.service';
 })
 export class LoginComponent implements OnInit {
 
+
+  rol=['Jurie','Admin']
+
   miFormulario: FormGroup = this.fb.group({
     usuario:['nicolas.1701322569@ucaldas.edu.co',[Validators.required]],
-    clave: ['12345',[Validators.required]]
+    clave: ['12345',[Validators.required]],
+    rol: ['',[Validators.required]]
   });
 
   constructor( private fb: FormBuilder,
                private authService: AuthService,
                private router: Router,
-               private localStorageService : LocalStorageService) { }
+               private localStorageService : LocalStorageService,
+               private jurieService: JurieService) { }
 
   ngOnInit( ): void {
   }
@@ -34,8 +40,10 @@ export class LoginComponent implements OnInit {
  
     let clave = cryptoJS.MD5(this.miFormulario.get('clave')?.value).toString();
     const usuario = this.miFormulario.get('usuario')?.value;
-    
-    this.authService.login( usuario, clave)
+    const rol = this.miFormulario.value.rol;
+
+    if(rol==='Admin'){
+      this.authService.login( usuario, clave)
       .subscribe( okey => {
         //console.log('aqui hay un error',okey);
         // undefined let saved = this.localStorageService.saveSessionData(okey)
@@ -51,6 +59,25 @@ export class LoginComponent implements OnInit {
           )
         }
       })
+    }else{
+      this.jurieService.login(usuario,clave)
+      .subscribe( okey => {
+        //console.log('aqui hay un error',okey);
+        // undefined let saved = this.localStorageService.saveSessionData(okey)
+        //console.log('antes',okey);
+        if(okey===true){
+          //console.log('despues de okey ',okey);
+          this.router.navigateByUrl('/dashboard')
+        }else{
+          Swal.fire(
+            'Error',
+            okey,
+            'error'
+          )
+        }
+      })
+    }
+    
 
 
 
