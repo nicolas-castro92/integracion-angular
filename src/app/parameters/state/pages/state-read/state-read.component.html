@@ -1,49 +1,41 @@
-<div class="grid" *ngIf="request" >
+<div class="grid" *ngIf="state" >
     <div class="col mt-2" >
-        <p-card header="List of requests" >
-            <!-- <p-toolbar styleClass="p-mb-4">
+        <p-card header="List of status" >
+            <p-toolbar styleClass="p-mb-4">
                 <ng-template pTemplate="left">
                     <button pButton pRipple label="New" 
                             icon="pi pi-plus" 
                             class="p-button-success p-mr-2"
-                            routerLink="/parameters/requests/request-create">
+                            routerLink="/parameters/status/state-create">
                     </button>
                 </ng-template>
-            </p-toolbar> -->
+            </p-toolbar>
         
         
-                <p-table [value]="request">
+                <p-table [value]="state">
                     <ng-template pTemplate="header">
                         <tr>
+                            <th>id</th>
                             <th>Name</th>
-                            <th>Date</th>
-                            <th>Type Request</th>
-                            <th>Modality</th>
-                            <th>Area</th>
-                            <th>Request</th>
                             <th>Actions</th>
                         </tr>
                     </ng-template>
-                    <ng-template pTemplate="body" let-request>
+                    <ng-template pTemplate="body" let-state>
                         <tr>
-                            <td>{{request.nombre_trabajo}}</td>
-                            <td>{{request.fecha_radicado | date }}</td>
-                            <td>{{request.idtiposolicitud.nombre }}</td>
-                            <td>{{request.idmodalidad.nombre }}</td>
-                            <td>{{request.idareainvestigacion.nombre }}</td>
-                            <td>{{request.trabajo }}</td>
+                            <td>{{state.id}}</td>
+                            <td>{{state.nombre}}</td>
                             <td>
                                 <button pButton pRipple icon="pi pi-pencil" 
                                         class="p-button-rounded p-button-success p-mr-2"
                                         style="margin-right: 5px;"
                                         type="button"
-                                        [routerLink]="['/parameters/requests/request-update', request.id]" 
+                                        [routerLink]="['/parameters/status/state-update', state.id]" 
                                         >
                                 </button>
                                 <button pButton pRipple icon="pi pi-trash" 
                                         class="p-button-rounded p-button-warning"
                                         type="button"
-                                        [routerLink]="['/parameters/requests/request-delete', request.id]" 
+                                        [routerLink]="['/parameters/status/state-delete', state.id]" 
                                         >
                                 </button>
                             </td>

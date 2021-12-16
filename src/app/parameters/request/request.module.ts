@@ -6,6 +6,8 @@ import { RequestDeleteComponent } from './pages/request-delete/request-delete.co
 import { RequestCreateComponent } from './pages/request-create/request-create.component';
 import { RequestUpdateComponent } from './pages/request-update/request-update.component';
 import { RequestReadComponent } from './pages/request-read/request-read.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { PrimeNgModule } from '../../prime-ng/prime-ng.module';
 
 
 @NgModule({
@@ -17,7 +19,9 @@ import { RequestReadComponent } from './pages/request-read/request-read.componen
   ],
   imports: [
     CommonModule,
-    RequestRoutingModule
+    RequestRoutingModule,
+    ReactiveFormsModule,
+    PrimeNgModule
   ]
 })
 export class RequestModule { }

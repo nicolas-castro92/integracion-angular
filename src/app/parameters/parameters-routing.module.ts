@@ -46,6 +46,10 @@ const routes: Routes = [
       {
         path:'types-requests',
         loadChildren: () => import ('./t-request/t-request.module').then ( m => m.TRequestModule )
+      },
+      {
+        path:'status',
+        loadChildren: () => import ('./state/state.module').then ( m => m.StateModule )
       }
       
     ]
