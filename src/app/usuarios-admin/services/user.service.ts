@@ -56,6 +56,13 @@ export class UserService {
     return this.http.post<Rol>(url,body,{headers: new HttpHeaders({Authorization: `Bearer ${localStorage.getItem('token')}`})})
   }
 
+  changePass(id_usuario: number, clave_actual: string,clave_nueva: string):Observable<any>{
+    const body = {id_usuario,clave_actual,clave_nueva}
+    //console.log('desde servicio',body);
+    const url = `${this.adminUrl}/cambiar-clave`
+    return this.http.post<any>(url,body)
+  }
+
 
   
 }

@@ -33,18 +33,11 @@
                             <td>{{request.idareainvestigacion.nombre }}</td>
                             <td>{{request.trabajo }}</td>
                             <td>
-                                <button pButton pRipple icon="pi pi-pencil" 
-                                        class="p-button-rounded p-button-success p-mr-2"
-                                        style="margin-right: 5px;"
-                                        type="button"
-                                        [routerLink]="['/parameters/requests/request-update', request.id]" 
-                                        >
-                                </button>
-                                <button pButton pRipple icon="pi pi-trash" 
-                                        class="p-button-rounded p-button-warning"
-                                        type="button"
-                                        [routerLink]="['/parameters/requests/request-delete', request.id]" 
-                                        >
+                                <button pButton type="button" 
+                                        class="p-button-raised p-button-rounded p-button-warning"
+                                        label="Asign Jurie"
+                                        [routerLink]="['/parameters/requests/request-delete', request.id]">
+                                        
                                 </button>
                             </td>
                         </tr>

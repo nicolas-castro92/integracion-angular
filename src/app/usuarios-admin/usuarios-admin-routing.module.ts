@@ -15,9 +15,10 @@ const routes: Routes = [
     component: DashboardComponent,
     children:[
       { path: 'user-create', component: UserCreateComponent },
+      { path: 'user-read', component: UserReadComponent },
+      { path: 'change-pass/:id', component: ChangePasswordComponent },
       { path: 'user-delete/:id', component: UserDeleteComponent },
       { path: 'user-update/:id', component: UserUpdateComponent },
-      { path: 'user-read', component: UserReadComponent },
       { path: 'rol/:id', component: RolComponent }
     ]
   }

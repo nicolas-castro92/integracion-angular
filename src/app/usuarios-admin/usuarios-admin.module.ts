@@ -29,7 +29,6 @@ import { RolComponent } from './pages/rol/rol.component';
     FormsModule
   ],
   exports:[
-    ChangePasswordComponent
   ]
 })
 export class UsuariosAdminModule { }

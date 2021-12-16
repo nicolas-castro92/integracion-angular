@@ -98,12 +98,16 @@
 
 <div class="p-mt-22" >
         <p-menubar class="mt-2">
-                <p-tag value="Binvenido: {{usuario.data?.nombre}}  " icon="pi pi-user">
-                
+                <button pButton type="button" 
+                        label="Change pass" 
+                        icon="pi pi-check" 
+                        class="p-button-sm mr-2"
+                        [routerLink]="['/usuarios/change-pass',usuario.data?.id_usuario]"
+                        >
+                </button>
+                <p-tag value="Welcome: {{usuario.data?.nombre}}  " icon="pi pi-user">
                 </p-tag>
-        
         </p-menubar>
-
 </div>
 <router-outlet></router-outlet>
 <!-- <div class="text-layout" >
