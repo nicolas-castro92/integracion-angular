@@ -13,6 +13,7 @@ import { StateService } from 'src/app/parameters/state/services/state.service';
 import { AreaService } from 'src/app/parameters/i-area/services/area.service';
 import { State } from 'src/app/parameters/state/interfaces/state.interface';
 import { Area } from 'src/app/parameters/i-area/interfaces/area.interface';
+import { UploadedFile } from '../../interfaces/upload.file.interface';
 
 @Component({
   selector: 'app-request-create',
@@ -90,6 +91,7 @@ export class RequestCreateComponent implements OnInit {
     idareainvestigacion:['',[Validators.required]],
   })
 
+
   createRequest(){
 
     const formData = this.miFormulario.getRawValue();
@@ -127,5 +129,7 @@ export class RequestCreateComponent implements OnInit {
       this.requestService.createRequestProponent({
           
       })
+
+      
   }
 }

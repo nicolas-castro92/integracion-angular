@@ -5,6 +5,7 @@ import { JurieCreateComponent } from './pages/jurie-create/jurie-create.componen
 import { JurieDeleteComponent } from './pages/jurie-delete/jurie-delete.component';
 import { JurieReadComponent } from './pages/jurie-read/jurie-read.component';
 import { JurieUpdateComponent } from './pages/jurie-update/jurie-update.component';
+import { AsignJurieComponent } from './pages/asign-jurie/asign-jurie.component';
 
 const routes: Routes = [
   {
@@ -14,6 +15,7 @@ const routes: Routes = [
       { path:'jurie-read', component: JurieReadComponent },
       { path:'jurie-update/:id', component: JurieUpdateComponent },
       { path:'jurie-delete/:id', component: JurieDeleteComponent },
+      { path:'asign-jurie/:id', component: AsignJurieComponent },
       { path:'**', redirectTo:'jurie-read' }
     ]
   }

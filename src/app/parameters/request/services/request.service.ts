@@ -3,6 +3,7 @@ import { environment } from '../../../../environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Request } from '../interfaces/request.interface';
+import { UploadedFile } from '../interfaces/upload.file.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -46,4 +47,10 @@ export class RequestService {
     const url = `${this.academicUrl}/solicitudes/${id}`
     return this.http.delete<any>(url,{headers: new HttpHeaders({Authorization: `Bearer ${localStorage.getItem('token')}`})});
   }
+
+  UploadDocument(form: FormData): Observable<UploadedFile>{
+    const ulr = `${this.academicUrl}/cargarDocumentoPersona`
+    return this.http.post<UploadedFile>(ulr,form,{headers: new HttpHeaders({Authorization: `Bearer ${localStorage.getItem('token')}`})});
+  }
+
 }
