@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes, CanActivate } from '@angular/router';
 import { ValidarTokenGuard } from './guards/validar-token.guard';
+import { ValidarAdminGuard } from './guards/validar-admin.guard';
 
 const routes: Routes = [
   {
@@ -16,8 +17,8 @@ const routes: Routes = [
   {
     path: 'usuarios',
     loadChildren: () => import('./usuarios-admin/usuarios-admin.module').then ( m => m.UsuariosAdminModule ),
-    canActivate: [ ValidarTokenGuard ],
-    canLoad:[ ValidarTokenGuard ] 
+    canActivate: [ ValidarTokenGuard, ValidarAdminGuard ],
+    canLoad:[ ValidarTokenGuard ]
   },
   {
     path:'parameters',
