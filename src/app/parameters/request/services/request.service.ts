@@ -22,8 +22,9 @@ export class RequestService {
   }
 
   createRequestProponent(data:any):Observable<any>{
+    console.log('desde servicio',data);
     const url = `${this.academicUrl}/proponentexsolicitudes`;
-    return this.http.post(url,data);
+    return this.http.post<any>(url,data,{headers: new HttpHeaders({Authorization: `Bearer ${localStorage.getItem('token')}`})});
   }
 
   getRequest():Observable<Request[]>{

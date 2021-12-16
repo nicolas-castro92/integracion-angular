@@ -113,14 +113,15 @@ export class RequestCreateComponent implements OnInit {
           showConfirmButton: false,
           timer: 2000
         })
-        setTimeout(() => {
-          const formData = this.miFormulario.getRawValue();
+        if(resp){
+          console.log('que envio',resp.id,this.proponenteId);
           this.requestService.createRequestProponent({
-            id_proponente:this.proponenteId,
-            id_solicitud: parseInt(resp.id)
+            id_solicitud: parseInt(resp.id),
+            id_proponente:this.proponenteId
           })
-        }, 2000);
-        
+          .subscribe(resp =>{
+          })
+        }
         this.router.navigateByUrl('/parameters/faculties/Request-read')
       })
       this.requestService.createRequestProponent({
