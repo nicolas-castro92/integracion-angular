@@ -17,7 +17,7 @@ const routes: Routes = [
   {
     path: 'usuarios',
     loadChildren: () => import('./usuarios-admin/usuarios-admin.module').then ( m => m.UsuariosAdminModule ),
-    canActivate: [ ValidarTokenGuard, ValidarAdminGuard ],
+    canActivate: [ ValidarTokenGuard ],
     canLoad:[ ValidarTokenGuard ]
   },
   {

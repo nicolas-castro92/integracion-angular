@@ -9,6 +9,7 @@
                         icon="pi pi-user"
                         style="margin-right: 5px;"
                         routerLink="/parameters/faculties"
+                        *ngIf="usuario.data?.rol==2"
                         >
                 </button>
                 <button pButton label="Department"
@@ -16,6 +17,7 @@
                         icon="pi pi-user"
                         style="margin-right: 5px;"
                         routerLink="/parameters/departaments"
+                        *ngIf="usuario.data?.rol==2"
                         >
                 </button>
                 <button pButton label="T-Bonding"
@@ -23,6 +25,7 @@
                         icon="pi pi-user"
                         style="margin-right: 5px;"
                         routerLink="/parameters/bonding"
+                        *ngIf="usuario.data?.rol==2"
                         >
                 </button>
                 <button pButton label="T-Request"
@@ -30,6 +33,7 @@
                         icon="pi pi-user"
                         style="margin-right: 5px;"
                         routerLink="/parameters/types-requests"
+                        *ngIf="usuario.data?.rol==2"
                         >
                 </button>
                 <button pButton label="T-Committee"
@@ -37,6 +41,7 @@
                         icon="pi pi-user"
                         style="margin-right: 5px;"
                         routerLink="/parameters/committees"
+                        *ngIf="usuario.data?.rol==2 || usuario.data?.rol==3"
                         >
                 </button>
                 <button pButton label="I-Area"
@@ -44,6 +49,7 @@
                         icon="pi pi-user"
                         style="margin-right: 5px;"
                         routerLink="/parameters/investigation"
+                        *ngIf="usuario.data?.rol==2"
                         >
                 </button>
                 <button pButton label="Modality"
@@ -51,6 +57,7 @@
                         icon="pi pi-user"
                         style="margin-right: 5px;"
                         routerLink="/parameters/modalities"
+                        *ngIf="usuario.data?.rol==2"
                         >
                 </button>
                 <button pButton label="Status"
@@ -58,6 +65,7 @@
                         icon="pi pi-user"
                         style="margin-right: 5px;"
                         routerLink="/parameters/status"
+                        *ngIf="usuario.data?.rol==2"
                         >
                 </button>
                 <button pButton label="Request"
@@ -65,6 +73,7 @@
                         icon="pi pi-user"
                         style="margin-right: 5px;"
                         routerLink="/parameters/requests"
+                        *ngIf="usuario.data?.rol==2 || usuario.data?.rol==3"
                         >
                 </button>
                 <button pButton label="Proponent"
@@ -72,20 +81,23 @@
                         icon="pi pi-user"
                         style="margin-right: 5px;"
                         routerLink="/parameters/proponents"
+                        *ngIf="usuario.data?.rol==2 || usuario.data?.rol==3 "
                         >
                 </button>
                 <button pButton label="Juries"
                         class="p-button-sm mt-2"
                         icon="pi pi-user"
                         style="margin-right: 5px;"
-                        routerLink="/parameters/juries">
+                        routerLink="/parameters/juries"
+                        *ngIf="usuario.data?.rol==2  || usuario.data?.rol==3"  >
                         >
                 </button>
                 <button pButton label="Users"
                         class="p-button-sm mt-2"
                         icon="pi pi-user"
                         style="margin-right: 5px;"
-                        routerLink="/usuarios/user-read">
+                        routerLink="/usuarios/user-read"
+                        *ngIf="usuario.data?.rol==2">
                 </button>
                 <button pButton label="Logout"
                         class="p-button-sm mt-2"
@@ -110,10 +122,10 @@
         </p-menubar>
 </div>
 <router-outlet></router-outlet>
-<div class="text-layout" >
+<!-- <div class="text-layout" >
         <pre> {{ usuario | json }} </pre>
 
-</div>
+</div> -->
    
 
 

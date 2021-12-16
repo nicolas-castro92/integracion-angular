@@ -30,7 +30,7 @@ export class ForgotPassComponent implements OnInit {
   }
 
   recuperarPass(){
-    const {correo} = this.miFormulario.value.correo;
+    const correo = this.miFormulario.value.correo;
     //console.log(this.miFormulario.value);
     const rol = this.miFormulario.value.rol;
 

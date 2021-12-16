@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
 
   miFormulario: FormGroup = this.fb.group({
     usuario:['nicolas.1701322569@ucaldas.edu.co',[Validators.required]],
-    clave: ['12345',[Validators.required]],
+    clave: ['3YGj1yHz3i',[Validators.required]],
     rol: ['',[Validators.required]]
   });
 
@@ -43,6 +43,7 @@ export class LoginComponent implements OnInit {
     const rol = this.miFormulario.value.rol;
 
     if(rol==='Admin'){
+      console.log(usuario,clave);
       this.authService.login( usuario, clave)
       .subscribe( okey => {
         //console.log('aqui hay un error',okey);
@@ -60,6 +61,7 @@ export class LoginComponent implements OnInit {
         }
       })
     }else{
+      console.log(usuario, clave);
       this.jurieService.login(usuario,clave)
       .subscribe( okey => {
         //console.log('aqui hay un error',okey);
