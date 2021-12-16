@@ -12,6 +12,7 @@ import {SliderModule} from 'primeng/slider';
 import {MultiSelectModule} from 'primeng/multiselect';
 import {ContextMenuModule} from 'primeng/contextmenu';
  */
+
 import {DialogModule} from 'primeng/dialog';
 import {Dropdown, DropdownModule} from 'primeng/dropdown';
 import {ProgressBarModule} from 'primeng/progressbar';
@@ -59,6 +60,7 @@ import {CardModule} from 'primeng/card';
     Dropdown,
     DropdownModule,
     DialogModule,
+    FileUploadModule,
     InputNumberModule,
     InputTextModule,
     InputTextareaModule,

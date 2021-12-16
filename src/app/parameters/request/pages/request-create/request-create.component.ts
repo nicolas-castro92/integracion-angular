@@ -92,6 +92,11 @@ export class RequestCreateComponent implements OnInit {
   })
 
 
+  mainForm: FormGroup = this.fb.group({
+    tfile:["",[]]
+  })
+
+
   createRequest(){
 
     const formData = this.miFormulario.getRawValue();

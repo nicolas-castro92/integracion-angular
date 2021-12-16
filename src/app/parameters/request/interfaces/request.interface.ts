@@ -17,3 +17,15 @@ export interface Request {
     idareainvestigacion:  Area;
     idestado:             State;
 }
+
+export interface solicitudxr {
+        id: number;
+        fecha_invitacion: Date;
+        fecha_respuesta: Date;
+        respuesta: string;
+        observaciones: string;
+        id_jurado: number;
+        id_solicitud: number;
+        id_estado: number
+      
+}

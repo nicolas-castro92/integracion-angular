@@ -16,6 +16,7 @@
                     <ng-template pTemplate="header">
                         <tr>
                             <th>Name</th>
+                            <th>Status</th>
                             <th>Date</th>
                             <th>Type Request</th>
                             <th>Modality</th>
@@ -27,6 +28,7 @@
                     <ng-template pTemplate="body" let-request>
                         <tr>
                             <td>{{request.nombre_trabajo}}</td>
+                            <td>{{request.idestado.nombre}}</td>
                             <td>{{request.fecha_radicado | date }}</td>
                             <td>{{request.idtiposolicitud.nombre }}</td>
                             <td>{{request.idmodalidad.nombre }}</td>
@@ -43,9 +45,37 @@
                         </tr>
                     </ng-template>
                 </p-table>
+
+
         </p-card>
+
     </div>   
 </div>
+
+<p-card>
+
+    <p-table [value]="requestt" >
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Name</th>
+                <th>Status</th>
+                <th>answer</th>
+                <th>jurie</th>
+              
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-requestt>
+            <tr>
+                <td>{{requestt.respuesta | json}}</td>
+              
+               
+                <td>
+                
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</p-card>
     
 
 <router-outlet></router-outlet>

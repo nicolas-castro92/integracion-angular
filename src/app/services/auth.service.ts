@@ -13,6 +13,7 @@ export class AuthService {
 
 
   private adminUrl: string = environment.adminiUrl;
+  private academicUrl: string = environment.academicUrl;
   private tokenUrl: string = environment.validarUrl;
 
   private _usuario!: ValidacionToken;
@@ -111,6 +112,12 @@ export class AuthService {
 
   logout(){
     localStorage.clear();
+  }
+
+
+  getRespuesta(data:any):Observable<any>{
+    const url = `${this.academicUrl}/solicitud-respuesta`
+    return this.http.post<any>(url,data);
   }
 
 }

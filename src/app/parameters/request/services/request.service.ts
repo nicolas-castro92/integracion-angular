@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../../../environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Request } from '../interfaces/request.interface';
+import { Request, solicitudxr } from '../interfaces/request.interface';
 import { UploadedFile } from '../interfaces/upload.file.interface';
 
 @Injectable({
@@ -51,6 +51,10 @@ export class RequestService {
   UploadDocument(form: FormData): Observable<UploadedFile>{
     const ulr = `${this.academicUrl}/cargarDocumentoPersona`
     return this.http.post<UploadedFile>(ulr,form,{headers: new HttpHeaders({Authorization: `Bearer ${localStorage.getItem('token')}`})});
+  }
+  requestDos():Observable<solicitudxr[]>{
+    const url = `${this.academicUrl}/juradoxsolicitudes`
+    return this.http.get<solicitudxr[]>(url);
   }
 
 }
